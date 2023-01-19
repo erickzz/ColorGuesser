@@ -3,6 +3,8 @@ const boxes = document.querySelectorAll('.colorBox');
 const rgbAnswer = document.getElementById('rgb-code');
 const buttonStart = document.querySelector('button');
 
+const rgbCode = rgbAnswer.textContent;
+
 const generateColor = () => {
   const r = Math.floor(Math.random() * 255);
   const g = Math.floor(Math.random() * 255);
@@ -17,7 +19,7 @@ const setRandomColors = () => {
   }
   rgbAnswer.innerHTML = generateColor();
   const rightAnswer = Math.floor(Math.random() * boxes.length);
-  boxes[rightAnswer].style.backgroundColor = rgbAnswer;
+  boxes[rightAnswer].style.backgroundColor = rgbCode;
 };
 
 const events = () => {
