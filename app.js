@@ -2,7 +2,6 @@ const topSection = document.getElementById('top-section');
 const boxes = document.querySelectorAll('.colorBox');
 const rgbAnswer = document.getElementById('rgb-code');
 const buttonStart = document.querySelector('button');
-let answer = rgbAnswer.innerHTML;
 
 const generateColor = () => {
   const r = Math.floor(Math.random() * 255);
@@ -21,14 +20,9 @@ const setRandomColors = () => {
   boxes[rightAnswer].style.backgroundColor = rgbAnswer;
 };
 
-const getNewAnswer = () => {
-  answer = rgbAnswer.innerHTML;
-};
-
 const events = () => {
-  getNewAnswer();
   let clickedColor;
-  const topStyle = answer;
+  const topStyle = rgbAnswer.innerHTML;
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener('click', () => {
       clickedColor = boxes[i].style.backgroundColor;
@@ -45,8 +39,5 @@ const events = () => {
   }
 };
 
-rgbAnswer.addEventListener('change', () => {
-  answer = rgbAnswer.innerHTML;
-});
 setRandomColors();
 events();
