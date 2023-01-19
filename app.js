@@ -31,20 +31,18 @@ const setColors = () => {
 
   console.log('Resposta certa: ' + selectRightBox);
 
-  selectAnswer(rightColor);
+  addEvent(rightColor);
 };
 
-const selectAnswer = (answer) => {
+const addEvent = (answer) => {
   for (const value of boxes) {
-    value.addEventListener('click', () => {
-      if (value.style.backgroundColor == answer) {
-        alert('Correto');
-        startGame();
-      } else {
-        alert('Errado');
-        startGame();
-      }
-    });
+    value.addEventListener('click', selectColor.bind(value, answer));
+  }
+};
+
+const selectColor = (answer) => {
+  if (this.backgroundColor == answer) {
+    alert('oi' + test);
   }
 };
 
