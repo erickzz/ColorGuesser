@@ -9,8 +9,8 @@ const startGame = () => {
   for (const value of boxes) {
     value.style.display = 'block';
   }
-  const answer = setColors();
-  selectAnswer(answer);
+  setColors();
+  selectAnswer();
 };
 
 const generateColor = () => {
@@ -34,10 +34,11 @@ const setColors = () => {
   return rightColor;
 };
 
-const addEvent = (answer) => {
+const selectAnswer = () => {
   for (const value of boxes) {
     value.addEventListener('click', () => {
-      if (value.style.backgroundColor == answer) {
+      const rightRgb = rgbText.innerHTML;
+      if (value.style.backgroundColor == rightRgb) {
         alert('Correto');
         setColors();
       } else {
