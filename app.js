@@ -9,7 +9,8 @@ const startGame = () => {
   for (const value of boxes) {
     value.style.display = 'block';
   }
-  selectAnswer();
+  const answer = setColors();
+  selectAnswer(answer);
 };
 
 const generateColor = () => {
@@ -26,24 +27,25 @@ const setColors = () => {
   const rightColor = (rgbText.innerHTML = generateColor());
   const selectRightBox = Math.floor(Math.random() * boxes.length);
   boxes[selectRightBox].style.backgroundColor = rightColor;
-
   console.log(rightColor);
 
   console.log('Resposta certa: ' + selectRightBox);
+
+  return rightColor;
 };
 
-const selectAnswer = () => {
+const selectAnswer = (answer) => {
   for (const value of boxes) {
     value.addEventListener('click', () => {
-      if (this.style.backgroundColor == 'Test') {
+      if (value.style.backgroundColor == answer) {
         alert('Correto');
+        setColors();
       } else {
         alert('Errado');
+        setColors();
       }
     });
   }
 };
-
-setColors();
 
 buttonStart.addEventListener('click', startGame);
