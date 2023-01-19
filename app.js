@@ -1,9 +1,9 @@
 const topSection = document.getElementById('top-section');
 const boxes = document.querySelectorAll('.colorBox');
-const rgbAnswer = document.getElementById('rgb-code');
+const rgbText = document.getElementById('rgb-code');
 const buttonStart = document.querySelector('button');
 
-const rgbCode = rgbAnswer.textContent;
+const rgbAnswer = rgbText.innerHTML;
 
 const generateColor = () => {
   const r = Math.floor(Math.random() * 255);
@@ -12,34 +12,15 @@ const generateColor = () => {
   return `rgb(${r}, ${g}, ${b})`;
 };
 
-const setRandomColors = () => {
+const setColors = () => {
   for (const value of boxes) {
-    let colors = generateColor();
-    value.style.backgroundColor = colors;
+    value.style.backgroundColor = generateColor();
   }
-  rgbAnswer.innerHTML = generateColor();
-  const rightAnswer = Math.floor(Math.random() * boxes.length);
-  boxes[rightAnswer].style.backgroundColor = rgbCode;
+  const rightColor = (rgbText.innerHTML = generateColor());
+  const selectRightBox = Math.floor(Math.random() * boxes.length);
+  boxes[selectRightBox].style.backgroundColor = rightColor;
+
+  console.log('Resposta certa: ' + selectRightBox);
 };
 
-const events = () => {
-  let clickedColor;
-  const topStyle = rgbAnswer.innerHTML;
-  for (let i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener('click', () => {
-      clickedColor = boxes[i].style.backgroundColor;
-      console.log('Right Color: ' + topStyle);
-      console.log('Clicked: ' + clickedColor);
-      if (clickedColor == topStyle) {
-        alert('Correto');
-        setRandomColors();
-      } else {
-        alert('Errado');
-        setRandomColors();
-      }
-    });
-  }
-};
-
-setRandomColors();
-events();
+setColors();
