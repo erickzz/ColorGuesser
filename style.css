@@ -29,6 +29,7 @@ h3{
     font-size: 25px;
     text-align: center;
     padding: 5px;
+    cursor: pointer;
 }
 
 #colors{
@@ -45,4 +46,5 @@ h3{
     background-color: #fff;
     margin:20px 20px;
     border-radius:10px;
+    display: none;
 }
