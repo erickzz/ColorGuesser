@@ -3,9 +3,13 @@ const boxes = document.querySelectorAll('.colorBox');
 const rgbText = document.getElementById('rgb-code');
 const buttonStart = document.querySelector('h3');
 
-const rgbAnswer = rgbText.innerHTML;
+let rgbAnswer = rgbText.innerHTML;
 
 const startGame = () => {
+  rgbAnswer = rgbText.innerHTML;
+  if (rgbAnswer != 'RGB(XX,XX,XX)') {
+    return;
+  }
   for (const value of boxes) {
     value.style.display = 'block';
   }
