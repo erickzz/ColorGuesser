@@ -54,3 +54,20 @@ const selectAnswer = () => {
 };
 
 buttonStart.addEventListener('click', startGame);
+
+/* ----------------------- PALINDROME CHECKER -------------------------------- */
+
+const palindrome = (word) => {
+  let reverseWord = '';
+  for (let i = word.length - 1; i >= 0; i--) {
+    reverseWord += word[i];
+  }
+  console.log(reverseWord);
+  if (reverseWord === word) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(palindrome('racecar'));
