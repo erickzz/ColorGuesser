@@ -7,7 +7,7 @@ let rgbAnswer = rgbText.innerHTML;
 
 const startGame = () => {
   rgbAnswer = rgbText.innerHTML;
-  if (rgbAnswer != 'RGB(XX,XX,XX)') {
+  if (rgbAnswer != 'rgb(XX, XX, XX)') {
     return;
   }
   for (const value of boxes) {
